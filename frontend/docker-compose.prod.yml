@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: roomiz-frontend-prod
+    image: roomiz-frontend-prod
+    build:
+      context: .
+      target: production
+    command: nginx -g 'daemon off;'
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 80:80

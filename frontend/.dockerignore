@@ -1,0 +1,12 @@
+.git
+.gitignore
+.dockerignore
+.env
+.env-example
+coverage
+**/node_modules
+**/npm-debug.log
+README.md
+.eslintrc.js
+.prettierrc
+tsconfig.build.json

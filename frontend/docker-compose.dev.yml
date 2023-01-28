@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: roomiz-frontend-dev
+    build:
+      context: .
+      target: development
+    command: npm run start
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    stdin_open: true

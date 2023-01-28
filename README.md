@@ -1,5 +1,5 @@
 WSL2
-- No permission to push to github.com: `ssh-add ~/.ssh/githubKey`
+- No permission to push to github.com: `eval "$(ssh-agent -s) && ssh-add ~/.ssh/githubKey`
 
 Backend
 - Start stack (ez): `docker-compose up`
@@ -16,6 +16,10 @@ Backend
 - Run prisma studio: `npx prisma studio`
 
 Frontend
+- Start stack (ez): `docker-compose up`
+
+- Start stack (if install new pckg or change dockerfile): `docker-compose up -d -V --build`
+
 - npm start
     Starts the development server.
 

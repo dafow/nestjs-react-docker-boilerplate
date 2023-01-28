@@ -1,0 +1,34 @@
+services:
+  api:
+    container_name: roomiz-backend-dev
+    depends_on:
+      - postgres
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+    env_file:
+    - .env
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
+    # Run a command against the development stage of the image
+    command: npm run start:dev
+    ports:
+      - 3001:3001
+
+  postgres:
+    container_name: roomiz-postgres-dev
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - roomiz-db:/var/lib/postgresql/data
+
+volumes:
+  roomiz-db:

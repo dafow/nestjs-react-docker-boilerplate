@@ -1,24 +1,24 @@
 services:
   api:
+    container_name: roomiz-backend-prod
     depends_on:
       - postgres
     build:
-      dockerfile: Dockerfile
       context: .
-      # Only will build development stage from our dockerfile
-      target: development
+      target: production
     volumes:
       - .:/usr/src/app
     env_file:
     - .env
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
-    # Run a command against the development stage of the image
-    command: npm run start:dev
+    # Run a command against the production stage of the image
+    command: npm run start:prod
     ports:
-      - 3000:3000
+      - 3001:3001
 
   postgres:
+    container_name: roomiz-postgres-dev
     image: postgres
     restart: always
     environment:
