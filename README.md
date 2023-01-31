@@ -1,5 +1,5 @@
 WSL2
-- No permission to push to github.com: `eval "$(ssh-agent -s) && ssh-add ~/.ssh/githubKey`
+- No permission to push to github.com: `eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubKey`
 
 Backend
 - Start stack (ez): `docker-compose up`
