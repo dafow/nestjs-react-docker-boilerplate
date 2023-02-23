@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-    - .env
+    - .env.prod
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
     # Run a command against the production stage of the image

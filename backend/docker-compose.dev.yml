@@ -9,13 +9,14 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-    - .env
+    - .env.local
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
     # Run a command against the development stage of the image
     command: npm run start:dev
     ports:
       - 3001:3001
+      - 5555:5555
 
   postgres:
     container_name: roomiz-postgres-dev

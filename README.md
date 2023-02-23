@@ -2,8 +2,8 @@ WSL2
 - No permission to push to github.com: `eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubKey`
 
 Backend
-- Start stack (ez): `docker-compose up`
-- Start stack (if install new pckg or change dockerfile): `docker-compose up -d -V --build`
+- Start stack (ez): `docker-compose -f docker-compose.dev.yml --env-file .env.local up`
+- Start stack (if install new pckg or change dockerfile): `docker-compose -f docker-compose.dev.yml --env-file .env.local up -d -V --build`
 
 -d: Run the containers in detached mode
 
